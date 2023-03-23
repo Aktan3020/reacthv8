@@ -1,8 +1,8 @@
 import React from 'react'
-
+import classes from "../BookList/styles.module.scss"
 const Error = ({ children }) => {
   return (
-    <div>Error {children}</div>
+    <div className={classes.err}><span>Error {children}</span></div>
   )
 }
 

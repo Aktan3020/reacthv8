@@ -5,6 +5,7 @@ const initialState = {
   books: [],
   isLoading: false,
   error: "",
+  total:0,
 };
 
 export const bookListSlice = createSlice({
@@ -21,6 +22,7 @@ export const bookListSlice = createSlice({
       state.isLoading = false;
       state.error = "";
     });
+    
 
     builder.addCase(fetchBooks.rejected, (state, action) => {
       state.isLoading = false;

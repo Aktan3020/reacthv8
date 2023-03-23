@@ -1,18 +1,23 @@
+import React,{ useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
-import { cartAddBook, cartDeleteBook, cartRemoveBook } from "../../store/actions/cartItemsCreator";
+import { cartAddBook, cartDeleteBook, cartRemoveBook,Total } from "../../store/actions/cartItemsCreator";
 
 
 const ShopCartTable = () => {
+
+
   const items = useSelector((state) => state.ShopCartReducer.cartItems);
   const dispatch = useDispatch();
+  const onTotal = ()=>Total(items)
 
   const renderItems = (el, index) => {
     const { title, count, total, id } = el;
     const onAddToCart = () => dispatch(cartAddBook(id));
     const onRemoveFromCart = () => dispatch(cartRemoveBook(id));
     const onDeleteFromCart = () => dispatch(cartDeleteBook(id));
+ 
 
     return (
       <tr key={`shop-item-${id}`}>
@@ -50,7 +55,7 @@ const ShopCartTable = () => {
 
         <tbody>{items.map(renderItems)}</tbody>
       </Table>
-      <div>Total: 500$</div>
+      <div >Total: {onTotal()}$</div>
     </div>
   );
 };

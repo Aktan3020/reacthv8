@@ -32,3 +32,43 @@ ul {
     font-size: 1.4rem;
   }
 }
+.spin span{
+  display: block;
+  animation: 1s ease-in spiner forwards infinite;
+  color: red;
+height: 50% !important;
+font-size: 0.5em;
+width: 50% !important;
+}
+.spin{
+  width: 100px;
+}
+
+@keyframes spiner {
+  0%{
+    transform: rotate(0deg);
+    color: black;
+  }
+  100%{
+    transform: rotate(360deg);
+    color: blue;
+  }
+}
+.err{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+height: 40px;
+}
+.err span{
+  color: red;
+  animation: 2s linear infinite err;
+}
+@keyframes err {
+  0%{
+    font-size: 22px;
+  }
+  100%{
+    font-size: 27px;
+  }
+}
